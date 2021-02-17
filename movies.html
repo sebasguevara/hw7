@@ -9,11 +9,15 @@
 </head>
 <body class="bg-gray-800">
   
-  <div class="sign-in-or-sign-out pt-4 px-16 text-white text-center">
+  <div class="sign-in-or-sign-out pb-1 pt-1 px-16 text-white text-center border-b border-white bg-gray-600">
     <!-- JavaScript puts stuff here -->
   </div>
 
-  <div class="movies p-16 md:flex md:flex-wrap">
+  <div class="welcome pt-3 text-white text-center text-3xl">
+    Welcome to your Watchlist!
+  </div>
+
+  <div class="movies pt-1 px-16 pb-16 md:flex md:flex-wrap">
     <!-- JavaScript puts stuff here -->
   </div>
 
@@ -32,7 +36,15 @@
 
   <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {}
+    var firebaseConfig = {
+      apiKey: "AIzaSyAeScNougxYpTHblqFf_-h_pn3w37pTE_4",
+      authDomain: "hw7-kiei.firebaseapp.com",
+      projectId: "hw7-kiei",
+      storageBucket: "hw7-kiei.appspot.com",
+      messagingSenderId: "278498359182",
+      appId: "1:278498359182:web:b50e65f52129d39d6556df",
+      measurementId: "G-6NC8LMJ8ZE"
+    }
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
