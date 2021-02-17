@@ -11,6 +11,8 @@ firebase.auth().onAuthStateChanged(async function(user)  {
       email: user.email
     })
     
+    let userId = user.uid
+
     console.log(`signed in as ${user.displayName}`)
     
     // Sign-out button
@@ -36,7 +38,7 @@ firebase.auth().onAuthStateChanged(async function(user)  {
     
     for (let i=0; i<movies.length; i++) {
       let movie = movies[i]
-      let docRef = await db.collection('watched').doc(`${movie.id}`).get()
+      let docRef = await db.collection('watched').doc(`${movie.id}-${userId}`).get()
       let watchedMovie = docRef.data()
       let opacityClass = ''
       if (watchedMovie) {
@@ -55,10 +57,10 @@ firebase.auth().onAuthStateChanged(async function(user)  {
         let movieElement = document.querySelector(`.movie-${movie.id}`)
         if (movieElement.classList.contains(`opacity-20`)) {
           movieElement.classList.remove('opacity-20')
-          await db.collection('watched').doc(`${movie.id}`).delete()
+          await db.collection('watched').doc(`${movie.id}-${userId}`).delete()
         } else {
           movieElement.classList.add('opacity-20')
-          await db.collection('watched').doc(`${movie.id}`).set({})
+          await db.collection('watched').doc(`${movie.id}-${userId}`).set({})
         }
       }) 
     }
